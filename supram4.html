@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <link rel="stylesheet" href="Css.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toyota GR Supra 2026</title>
+  <style>
+    body {
+      font-family: Bahnschrift, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    nav {
+      background-color: black;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .perfil i {
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 30px auto;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .miniaturas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .miniaturas img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .miniaturas img:hover {
+      border-color: yellow;
+    }
+
+    .imagen-principal {
+      flex-shrink: 0;
+      width: 500px;
+    }
+
+    .imagen-principal img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .info-producto {
+      flex: 1;
+      background-color: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(3px);
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+    }
+
+    .precio {
+      color: #00ff00;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .imagen-principal,
+      .info-producto {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+<nav>
+<a href="index.html" class="logo">
+  <img src="Logos/logonav.png" alt="Arkham City" style="height: 50px; width: auto;">
+</a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas Sneakers </a>
+      <div class="dropdown-content">
+        <a href="Nike.html">Nike</a>
+        <a href="Adidas.html">Adidas</a>
+        <a href="Puma.html">Puma</a>
+        <a href="Crocs.html">Crocs</a>
+
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Nuevo</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Llegadas recientes</a>
+        <a href="paginaC.html">Exclusivos</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Ropa</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Sudaderas</a>
+        <a href="paginaC.html">Playeras</a>
+        <a href="paginaC.html">Pantalones</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Gorras</a>
+        <a href="paginaC.html">Mochilas</a>
+        <a href="paginaC.html">Calcetas</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Ofertas</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Descuentos 50%</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="perfil">
+    <i onclick="window.location.href='Usuario.html'" title="Perfil">👤</i>
+  </div>
+</nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="contenedor">
+    <!-- Miniaturas -->
+    <div class="miniaturas">
+      <img src="Logos/Lego/supramk4.png" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/supramk4_6.png" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/supramk4_2.png" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/supramk4_3.png" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/supramk4_5.png" onmouseover="cambiarImagen(this)">
+    </div>
+
+    <!-- Imagen principal -->
+    <div class="imagen-principal">
+      <img id="imagen-grande" src="Logos/Lego/supramk4.png" alt="Imagen principal LEGO">
+    </div>
+
+    <!-- Información del producto -->
+    <div class="info-producto">
+      <h2>GR Supra 2026</h2>
+      <p class="precio">$MSRP inicial $57,500*</p>
+      <p>
+       Conduce en el mundo impulsado por adrenalina del GR Supra, donde la potencia pura,  
+       el manejo bien definido y un diseño listo para las carreras se unen para revolucionar 
+       tus expectativas.
+      </p>
+      <p>
+       MOTOR
+       Motor 6 cil. en línea de 3.0 L turboalimentado
+      </p>
+      <p>
+       RENDIMIENTO
+       0-60 en 3.9 segundos *
+      </p>
+      <p>
+       TRANSMISIÓN
+       Transmisión manual de 6 velocidades o transmisión automática de 8 velocidades
+      </p>
+      <p>
+       NATIONAL AUTO SPORT ASSOCIATION
+       Membresía de cortesía de 1 año *
+      </p>
+      <p><strong>SKU:</strong> LE1000-471</p>
+      <ul>
+        <li>Motor turboalimentado 6 cil. en línea de 3.0 L</li>
+        <li>Transmisión manual de 6 veloc.</li>
+        <li>Suspensión variable adaptativa</li>
+        <li>Escape tipo cat-back</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function cambiarImagen(elemento) {
+      const imagenGrande = document.getElementById("imagen-grande");
+      imagenGrande.src = elemento.src;
+    }
+  </script>
+</body>
+</html>

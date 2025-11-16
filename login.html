@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso - Arkham City</title>
+  <link rel="stylesheet" href="css/style_login.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Formulario de login -->
+    <div id="loginForm">
+      <h2>Iniciar Sesión</h2>
+      <div class="error" id="loginError"></div>
+      <input type="text" id="loginUsuario" placeholder="Nombre de usuario">
+      <input type="password" id="loginContrasena" placeholder="Contraseña">
+      <button onclick="iniciarSesion()">Entrar</button>
+      <div class="toggle" onclick="mostrarRegistro()">¿No tienes cuenta? Crear cuenta</div>
+
+      <div class="toggle" style="margin-top: 15px;" onclick="continuarComoInvitado()">
+          <a>Invitado</a>
+      </div>
+    </div>
+
+    <!-- Formulario de registro -->
+    <div id="registroForm" class="hidden">
+      <h2>Crear Cuenta</h2>
+      <div class="error" id="registroError"></div>
+      <input type="text" id="registroNombre" placeholder="Nombre completo">
+      <input type="email" id="registroCorreo" placeholder="Correo electrónico">
+      <input type="text" id="registroUsuario" placeholder="Nombre de usuario">
+      <input type="password" id="registroContrasena" placeholder="Contraseña">
+      <button onclick="crearCuenta()">Registrarse</button>
+      <div class="toggle" onclick="mostrarLogin()">¿Ya tienes cuenta? Iniciar sesión</div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarRegistro() {
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("registroForm").classList.remove("hidden");
+    }
+
+    function mostrarLogin() {
+      document.getElementById("registroForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+    }
+
+    function iniciarSesion() {
+    // 1. Obtiene los valores del formulario
+    const usuario = document.getElementById("loginUsuario").value.trim();
+    const contrasena = document.getElementById("loginContrasena").value.trim();
+    const errorBox = document.getElementById("loginError");
+
+    // 2. Lee la lista de "cuentas" desde localStorage
+    const cuentas = JSON.parse(localStorage.getItem("cuentas") || "[]");
+    
+    // 3. Busca un usuario que coincida
+    const usuarioEncontrado = cuentas.find(u => u.usuario === usuario && u.contrasena === contrasena);
+
+    // 4. Si lo encuentra...
+    if (usuarioEncontrado) {
+        // Guarda el usuario completo (incluyendo el rol) en "usuarioLogueado"
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioEncontrado));
+
+        // 5. ¡LA LÓGICA CLAVE! Revisa el rol y redirige
+        if (usuarioEncontrado.rol === 'administrador') {
+            // Si es admin, lo manda a Usuario.html con la señal ?view=admin
+            window.location.href = "Usuario.html?view=admin";
+        } else {
+            // Si es cliente o no tiene rol, lo manda a la vista normal
+            window.location.href = "Usuario.html";
+        }
+
+    } else {
+        errorBox.textContent = "Usuario o contraseña incorrectos.";
+    }
+}
+
+    function crearCuenta() {
+      const nombre = document.getElementById("registroNombre").value.trim();
+      const correo = document.getElementById("registroCorreo").value.trim();
+      const usuario = document.getElementById("registroUsuario").value.trim();
+      const contrasena = document.getElementById("registroContrasena").value.trim();
+      const errorBox = document.getElementById("registroError");
+
+      if (!nombre || !correo || !usuario || !contrasena) {
+        errorBox.textContent = "Por favor completa todos los campos.";
+        return;
+      }
+
+      const cuentas = JSON.parse(localStorage.getItem("cuentas") || "[]");
+
+      if (cuentas.find(u => u.usuario === usuario)) {
+        errorBox.textContent = "Ese nombre de usuario ya existe.";
+        return;
+      }
+
+      cuentas.push({ nombre, correo, usuario, contrasena });
+      localStorage.setItem("cuentas", JSON.stringify(cuentas));
+      errorBox.style.color = "lightgreen";
+      errorBox.textContent = "Cuenta creada. Ya puedes iniciar sesión.";
+      mostrarLogin();
+    }
+
+    // Detectar parámetro de URL para mostrar formulario correcto
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const form = params.get("form");
+      if (form === "registro") {
+        mostrarRegistro();
+      } else {
+        mostrarLogin();
+      }
+    };
+
+      function continuarComoInvitado() {
+          sessionStorage.setItem('sesion', 'invitado');
+          window.location.href = "index.html";
+      }
+  </script>
+</body>
+</html>

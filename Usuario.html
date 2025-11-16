@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="Css.css">
+  <meta charset="UTF-8">
+  <title>Usuario - Belcar</title>
+  <style>
+    .hidden {
+    display: none !important; /* !important asegura que se oculte */
+}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    nav {
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 30px;
+    }
+
+    .logo {
+      font-size: 28px;
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      color: yellow;
+    }
+
+    .perfil i {
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .perfil i:hover {
+      color: yellow;
+    }
+
+    .layout {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #333;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .section {
+      display: none;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px 0;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      background-color: yellow;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f0c800;
+    }
+
+    .eliminar {
+      background-color: red;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .eliminar:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navegación principal -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="Logos/logoBelcarosc.jpg" alt="Arkham City" style="height: 50px; width: auto;">
+  </a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas de autos</a>
+      <div class="dropdown-content">
+        <a href="chevrolet.html">Chevrolet</a>
+        <a href="paginaC.html">Porsche</a>
+        <a href="paginaC.html">Ford</a>
+        <a href="Crocs.html">BMW</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Novedades</a>
+      <div class="dropdown-content">
+        <a href="Gorras.html">Modelos recientes</a>
+        <a href="paginaC.html">Ediciones exclusivas</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Refacciones</a>
+        <a href="paginaC.html">Servicios</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Promociones</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Bonos de descuento</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="Contactanos.html">Contáctanos 📞</a>
+    </div>
+  </div>
+
+  <div class="perfil" style="position: relative;">
+    <div id="menuPerfil" style="cursor: pointer; display: none;" onclick="toggleMenu()">
+      👤
+    </div>
+<a id="btnLogin" href="login.html" style="color: yellow; display: none; text-decoration: none;">🔐 Iniciar sesión</a>
+    <div id="submenuPerfil" style="display: none; position: absolute; right: 0; top: 30px; background-color: #222; border: 1px solid #444; border-radius: 5px; padding: 8px 0; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 1000;">
+      <a href="Usuario.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">👤 Perfil</a>
+      <a href="#" onclick="cerrarSesion()" style="display: block; padding: 10px 20px; color: red; text-decoration: none;">🔓 Cerrar sesión</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Cuerpo dividido -->
+<div class="layout">
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <a href="#" class="tablink active" onclick="mostrarSeccion('perfil', event)">👤 Perfil</a>
+    <a href="#" class="tablink" onclick="mostrarSeccion('favoritos', event)">❤️ Favoritos</a>
+    <a href="#" class="tablink" onclick="mostrarSeccion('carrito', event)">🛒 Carrito</a>
+    <a href="#" class="tablink" onclick="mostrarSeccion('historial', event)">📦 Historial</a>
+    <a href="#" class="tablink" onclick="mostrarSeccion('pujas', event)">💸 Pujas</a>
+    <a href="#" class="tablink" onclick="mostrarSeccion('contacto', event)">📞 Contáctanos</a>
+
+    <a href="#" id="adminTab" class="tablink hidden" onclick="mostrarSeccion('adminPanel', event)"> ⚙️ Administrar Inventario </a>
+
+    <div id="adminPanel" class="section hidden">
+        <h3>⚙️ Administrar Inventario de Autos</h3>
+        <p>Modifica los precios, cantidades y detalles de los productos.</p>
+          
+        <table id="tablaProductos">
+        </table>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="main">
+  <div id="perfil" class="section active">
+    <h3>Información del Perfil</h3>
+    <p><strong>Nombre:</strong> <span id="perfilNombre"></span></p>
+    <p><strong>Correo:</strong> <span id="perfilCorreo"></span></p>
+    <p><strong>Usuario:</strong> <span id="perfilUsuario"></span></p>
+
+      <div id="adminPanel" class="section hidden">
+          <h3>⚙️ Panel de Administración</h3>
+          <p>Lista de todos los usuarios registrados en el sistema.</p>
+          <ul id="listaDeUsuarios">
+              </ul>
+      </div>
+
+    <button onclick="cerrarSesion()" style="margin-top: 15px; background-color: red; color: white;">Cerrar Sesión</button>
+  </div>
+
+
+
+    <div id="favoritos" class="section">
+      <h3>❤️ Favoritos</h3>
+      <ul id="listaFavoritos"></ul>
+    </div>
+
+    <div id="carrito" class="section">
+      <h3>🛒 Carrito</h3>
+      <ul id="listaCarrito"></ul>
+    </div>
+
+    <div id="historial" class="section">
+      <h3>📦 Historial de Compras</h3>
+      <ul id="listaHistorial"></ul>
+    </div>
+
+    <div id="pujas" class="section">
+      <h3>💸 Tus Pujas</h3>
+      <ul id="listaPujas"></ul>
+    </div>
+
+<div id="contacto" class="section">
+  <h3>📞 Contáctanos</h3>
+  
+  <p>¿Tienes dudas? Escríbenos a 
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=Belcar@gmail.com" target="_blank" style="color: inherit; text-decoration: none;">
+  Belcar@gmail.com
+</a>
+  </p>
+
+  <!-- Iconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Botón de WhatsApp -->
+  <a href="https://wa.me/5214491286389?text=Hola,%20quiero%20más%20información" target="_blank" style="
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+  ">
+    <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+  </a>
+</div>
+  </div>
+</div>
+
+<!-- Funcionalidad JS -->
+<script>
+  function mostrarSeccion(id, event) {
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    if (event) {
+        document.querySelectorAll(".tablink").forEach(tab => tab.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+    }
+}
+
+function crearItemConBoton(item, tipo, index) {
+    const li = document.createElement("li");
+    li.textContent = item.nombre ? `${item.nombre} - $${item.precio} MXN` : item;
+    const btn = document.createElement("button");
+    btn.className = "eliminar";
+    btn.textContent = "🗑️";
+    btn.onclick = () => eliminarElemento(tipo, index); // Adaptado para la función eliminar
+    li.appendChild(btn);
+    return li;
+}
+
+function eliminarElemento(tipo, index) {
+    let data = JSON.parse(localStorage.getItem(tipo) || "[]");
+    data.splice(index, 1);
+    localStorage.setItem(tipo, JSON.stringify(data));
+    cargarListas(); // Vuelve a cargar las listas para reflejar el cambio
+}
+
+function toggleMenu() {
+    const submenu = document.getElementById("submenuPerfil");
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+}
+
+function cerrarSesion() {
+    localStorage.removeItem("usuarioLogueado");
+    // Es mejor redirigir al login que solo recargar
+    window.location.href = "login.html"; 
+}
+
+function cargarListas() {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos") || "[]");
+    const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+    const pujas = JSON.parse(localStorage.getItem("pujas") || "[]");
+    const historial = JSON.parse(localStorage.getItem("historial") || "[]");
+
+    const listaFav = document.getElementById("listaFavoritos");
+    const listaCart = document.getElementById("listaCarrito");
+    const listaPujas = document.getElementById("listaPujas");
+    const listaHist = document.getElementById("listaHistorial");
+
+    listaFav.innerHTML = favoritos.length ? "" : "<li>No tienes productos favoritos aún.</li>";
+    listaCart.innerHTML = carrito.length ? "" : "<li>Tu carrito está vacío.</li>";
+    listaPujas.innerHTML = pujas.length ? "" : "<li>No has hecho ninguna puja aún.</li>";
+    listaHist.innerHTML = historial.length ? "" : "<li>No hay historial de compras.</li>";
+
+    favoritos.forEach((item, index) => {
+      listaFav.appendChild(crearItemConBoton(item, "favoritos", index));
+    });
+
+    let total = 0;
+    carrito.forEach((item, index) => {
+      listaCart.appendChild(crearItemConBoton(item, "carrito", index));
+      if (item.precio) total += parseFloat(item.precio);
+    });
+
+  if (carrito.length) {
+    const totalLi = document.createElement("li");
+    totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)} MXN</strong>`;
+    listaCart.appendChild(totalLi);
+
+    // Contenedor PayPal
+    const paypalContainer = document.createElement("div");
+    paypalContainer.id = "paypal-button-container";
+    paypalContainer.style.marginTop = "20px";
+    listaCart.appendChild(paypalContainer);
+
+    // Logos de tarjetas
+    const logosContainer = document.createElement("div");
+    logosContainer.innerHTML = `
+      <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
+        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" style="height: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" style="height: 24px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTwNB8upRoQJiLcSYPPRUKn3v-Oksekb78w&s" alt="MasterCard" style="height: 24px;">
+      </div>
+    `;
+    listaCart.appendChild(logosContainer);
+
+    // SDK de PayPal con tu Client ID
+    const script = document.createElement("script");
+    script.src = "https://www.paypal.com/sdk/js?client-id=Ab8T6SqCy15oxadSh3DqKnzjZtVa3jVx6hJ4mGXvOvB23ZbEpQFsoBrO3QH6A-EVKsbh0EyBDoDWhhi7&currency=MXN";
+    script.onload = () => {
+      paypal.Buttons({
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: total.toFixed(2)
+              }
+            }]
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            alert('Gracias por tu compra, ' + details.payer.name.given_name + '!');
+            const historialPrevio = JSON.parse(localStorage.getItem("historial") || "[]");
+            const historialNuevo = historialPrevio.concat(carrito);
+            localStorage.setItem("historial", JSON.stringify(historialNuevo));
+            localStorage.setItem("carrito", "[]");
+            cargarListas();
+          });
+        }
+      }).render('#paypal-button-container');
+    };
+  document.body.appendChild(script);
+}
+  pujas.forEach((item, index) => {
+        listaPujas.appendChild(crearItemConBoton(item, "pujas", index));
+      });
+
+      historial.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = item.nombre ? `${item.nombre} - $${item.precio} MXN` : item;
+        listaHist.appendChild(li);
+      });
+    }
+
+    window.onload = cargarListas;
+    // Mostrar info de usuario
+  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+  if (usuarioLogueado) {
+    document.getElementById("perfilNombre").textContent = usuarioLogueado.nombre;
+    document.getElementById("perfilCorreo").textContent = usuarioLogueado.correo;
+    document.getElementById("perfilUsuario").textContent = usuarioLogueado.usuario;
+  }
+
+
+  // --- CÓDIGO PRINCIPAL QUE SE EJECUTA AL CARGAR LA PÁGINA ---
+
+window.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. OBTENER USUARIO Y VERIFICAR SESIÓN
+    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+    if (!usuarioLogueado) {
+        // Si no hay nadie logueado, no mostramos nada y lo mandamos al login.
+        window.location.href = "login.html";
+        return; // Detiene la ejecución del resto del script
+    }
+
+    // 2. CONFIGURAR LA INTERFAZ GENERAL
+    document.getElementById("menuPerfil").style.display = "block";
+    document.getElementById("btnLogin").style.display = "none";
+    
+    // Rellenar la información del perfil
+    document.getElementById("perfilNombre").textContent = usuarioLogueado.nombre;
+    document.getElementById("perfilCorreo").textContent = usuarioLogueado.correo;
+    document.getElementById("perfilUsuario").textContent = usuarioLogueado.usuario;
+
+    // Cargar las listas de carrito, favoritos, etc.
+    cargarListas();
+
+    // 3. LÓGICA DE ADMINISTRADOR
+    const params = new URLSearchParams(window.location.search);
+    const vista = params.get('view');
+
+    // Si la URL tiene "?view=admin" Y el rol del usuario es "administrador"
+    if (vista === 'admin' && usuarioLogueado.rol === 'administrador') {
+        // Mostramos el panel de admin
+        document.getElementById('adminTab').classList.remove('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+
+        // Llenamos la lista de usuarios
+        const listaUL = document.getElementById('listaDeUsuarios');
+        const todasLasCuentas = JSON.parse(localStorage.getItem('cuentas') || '[]');
+        listaUL.innerHTML = ''; 
+
+        todasLasCuentas.forEach(cuenta => {
+            const li = document.createElement('li');
+            li.textContent = `Nombre: ${cuenta.nombre} | Usuario: ${cuenta.usuario} | Rol: ${cuenta.rol}`;
+            listaUL.appendChild(li);
+        });
+    }
+
+    // Cerrar el submenú del perfil si se hace clic fuera
+    document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const submenu = document.getElementById("submenuPerfil");
+        if (!menu.contains(event.target) && !submenu.contains(event.target)) {
+            submenu.style.display = "none";
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>

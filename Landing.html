@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Belcar - Landing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #121212, #1c1c1c);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .hero {
+      background-image: url('Logos/logoBelcarosc.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero h1, .hero p, .hero button {
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      color: #5b5a59;
+      text-shadow: 2px 2px #000;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.4em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 12px 25px;
+      border-radius: 10px;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      background: linear-gradient(45deg, #60605f, #23274e);
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(8, 97, 213, 0.5);
+    }
+
+    /* Botón flotante */
+    .fixed-btn {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #60605f, #23274e);
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      z-index: 2000;
+      display: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .fixed-btn.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .carrusel {
+      margin: 40px auto;
+      width: 80%;
+      max-width: 600px;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #23274e;
+      position: relative;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    .carrusel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carrusel img.active {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .promos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 60px 20px;
+      background-color: #181818;
+    }
+
+    .promo-card {
+      background: radial-gradient(circle at top left, #2a2a2a, #1c1c1c);
+      padding: 20px;
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 42, 255, 0.3);
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .promo-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(42, 142, 255, 0.6);
+    }
+
+    .promo-card h3 {
+      color: #878482;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .promo-card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .promo-card p {
+      font-size: 1em;
+      color: #ccc;
+    }
+
+    .contacto {
+      background-color: #111;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .contacto h2 {
+      font-size: 2.5em;
+      color: #9c9c9c;
+      margin-bottom: 30px;
+    }
+
+    .contacto input,
+    .contacto textarea {
+      margin-bottom: 20px;
+      padding: 12px;
+      width: 100%;
+      max-width: 500px;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: white;
+    }
+
+    .contacto button {
+      padding: 14px 30px;
+      background: linear-gradient(45deg, #575553, #686564);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .contacto button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #000;
+      padding: 25px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .redes {
+      margin: 15px 0;
+    }
+
+    .redes img {
+      margin: 0 10px;
+      height: 32px;
+      vertical-align: middle;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .redes img:hover {
+      transform: scale(1.3);
+      filter: brightness(1.2);
+    }
+
+    /* Modal de términos */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 700px;
+      text-align: left;
+      color: #ccc;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #9c9c9c;
+    }
+
+    .modal-content p {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .close-btn:hover {
+      background: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logos/logobelcarcl.jpg" alt="Belcar">
+  </header>
+
+ <section class="hero">
+  <h1>Bienvenido a Belcar</h1>
+  <p>Ofrecemos los mejores coches deportivos y de lujo, con planes accesibles y promociones exclusivas para que estrenes tu auto ideal.</p>
+  <button id="main-btn" onclick="window.location.href='/Nike.html'">Explorar productos</button>
+</section>
+
+
+  <!-- Botón flotante -->
+  <button id="floating-btn" class="fixed-btn" onclick="window.location.href='/Nike.html'">
+    Explorar productos
+  </button>
+
+  <section class="carrusel">
+    <img src="Logos/911-exterior-right-front-three-quarter-154382.avif" class="active" alt="Coche 1">
+    <img src="Logos/amarillo.avif" alt="Sneaker 2">
+    <img src="Logos/gris.avif" alt="Sneaker 3">
+  </section>
+
+  <section class="promos">
+    <div class="promo-card">
+      <h3>¡Compra 1 y tu seguro corre por nuestra cuenta!</h3>
+      <img src="Logos/camaro.avif" alt="Promo 1">
+      <p>ULTIMOS DESCUENTOS</p>
+    </div>
+
+    <div class="promo-card">
+      <h3>Stingray Coupe 3LT </h3>
+      <img src="Logos/CORVETTE.avif" alt="Promo 2">
+      <p>Aprovecha esta oferta , sólo por tiempo limitado. ¡No te lo pierdas!</p>
+    </div>
+  </section>
+
+  <section class="contacto">
+    <h2>Contáctanos</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="4" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Síguenos en redes:</p>
+    <div class="redes">
+      <a href="https://www.instagram.com/alexurzuq/?hl=es" target="_blank">
+        <img src="Logos/Ig.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/" target="_blank">
+        <img src="Logos/Fb.png" alt="Facebook">
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="Logos/x.png" alt="X">
+      </a>
+      <a href="https://wa.me/5214493052242" target="_blank">
+        <img src="Logos/Whatsapp.png" alt="WhatsApp">
+      </a>
+    </div>
+    <p><a href="#" id="open-terms" style="color:#888; text-decoration:underline; cursor:pointer;">Términos y Condiciones</a></p>
+    <p>© Belcar. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Modal de Términos -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-terms">Cerrar</button>
+      <h2>Términos y Condiciones</h2>
+      <p>Al utilizar este sitio web, aceptas cumplir con los términos y condiciones aquí establecidos. Estos pueden ser modificados en cualquier momento sin previo aviso.</p>
+      <p>Las ofertas y promociones están sujetas a disponibilidad y pueden cambiar sin previo aviso. Los precios mostrados incluyen impuestos salvo que se indique lo contrario.</p>
+      <p>Belcar no se hace responsable por errores tipográficos, cambios en los productos o demoras en la entrega ocasionadas por terceros.</p>
+      <p>Te recomendamos revisar esta sección regularmente para estar informado sobre las actualizaciones de nuestras políticas.</p>
+    </div>
+  </div>
+
+  <script>
+    const imagenes = document.querySelectorAll('.carrusel img');
+    let index = 0;
+
+    setInterval(() => {
+      imagenes[index].classList.remove('active');
+      index = (index + 1) % imagenes.length;
+      imagenes[index].classList.add('active');
+    }, 3000);
+
+    // Lógica del botón flotante
+    const mainBtn = document.getElementById('main-btn');
+    const floatingBtn = document.getElementById('floating-btn');
+
+    function checkButtonVisibility() {
+      const rect = mainBtn.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        floatingBtn.classList.add('show');
+      } else {
+        floatingBtn.classList.remove('show');
+      }
+    }
+
+    window.addEventListener('scroll', checkButtonVisibility);
+    window.addEventListener('resize', checkButtonVisibility);
+
+    // Modal de términos
+    const termsModal = document.getElementById("termsModal");
+    const openTerms = document.getElementById("open-terms");
+    const closeTerms = document.getElementById("close-terms");
+
+    openTerms.onclick = function() {
+      termsModal.style.display = "flex";
+    }
+
+    closeTerms.onclick = function() {
+      termsModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == termsModal) {
+        termsModal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
+

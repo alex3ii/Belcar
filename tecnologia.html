@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Integración Tecnológica (Simulada) — Proyecto Coches</title>
+  <style>
+    :root{
+      --bg:#1a1a1a;
+      --panel:#111;
+      --card:#222;
+      --muted:#bbb;
+      --text:#fff;
+      --primary:#00ffcc;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --radius:14px;
+      --gap:16px;
+      --shadow:0 6px 20px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    header{
+      padding:20px;
+      border-bottom:1px solid #333;
+      background:#111;
+      position:sticky; top:0; z-index:10;
+    }
+    header h1{margin:0; font-size:1.3rem; color:var(--primary);}
+    main{max-width:1100px; margin:24px auto; padding:0 16px 64px}
+    .section{
+      background: var(--panel);
+      border:1px solid #333;
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      margin-bottom:24px;
+    }
+    .section h2{margin:0 0 12px; font-size:1.25rem; color:var(--primary);}
+    .muted{color:var(--muted); font-size:.95rem}
+    .grid{display:grid; gap:var(--gap)}
+    @media (min-width: 780px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    .card{
+      background: var(--card);
+      border:1px solid #333;
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .badge{display:inline-block; padding:4px 10px; border-radius:999px; font-size:.8rem; background:#111; border:1px solid #444}
+    .badge.primary{border-color:var(--primary); color:var(--primary)}
+    .list{margin:.25rem 0 0 .75rem; padding:0}
+    .list li{margin:.15rem 0}
+    .cta{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 16px; border-radius:12px; text-decoration:none;
+      border:1px solid #333;
+      background:linear-gradient(180deg, rgba(0,255,204,.15), rgba(0,255,204,0));
+      color:var(--text); transition:all .2s ease;
+    }
+    .cta:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,255,204,.25)}
+    .ok{color:var(--ok)} .warn{color:var(--warn)} .danger{color:var(--danger)}
+    details{border:1px solid #333; border-radius:12px; background:#111; padding:12px}
+    summary{cursor:pointer; font-weight:600}
+    .kpis{display:grid; gap:12px; margin-top:12px}
+    @media (min-width:680px){ .kpis{grid-template-columns:repeat(4,1fr)} }
+    .kpi{background:#000; border:1px solid #333; border-radius:12px; padding:12px; text-align:center}
+    .kpi .n{font-size:1.25rem; font-weight:700; color:var(--primary);}
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; border:1px solid #333; background:#111; font-size:.85rem}
+    .checklist{display:grid; gap:8px; margin-top:8px}
+    .row{display:flex; align-items:center; gap:10px}
+    input[type="checkbox"]{width:18px; height:18px; accent-color: var(--primary)}
+    .footnote{font-size:.85rem; color:var(--muted)}
+    .code{font-family: monospace; background:#111; border:1px solid #333; border-radius:10px; padding:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Integración Tecnológica (Simulada) — Venta de Coches</h1>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="plataformas">
+      <h2 id="plataformas">¿Con qué plataforma se integraría “si fuera real”?</h2>
+      <p class="muted">Nuestro proyecto de venta de coches es solo front-end, pero en un despliegue real podría integrarse con una plataforma abierta como <strong>Magento Open Source</strong> o cerrada como <strong>BigCommerce</strong>.</p>
+
+      <div class="grid cols-2" role="list">
+        <!-- Opción abierta -->
+        <article class="card" role="listitem">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <h3 style="margin:0;">Opción A — Magento Open Source</h3>
+            <span class="badge primary">Abierta</span>
+          </div>
+          <p class="muted">Potente solución open source de e-commerce, muy usada en proyectos de venta en línea de autos y autopartes.</p>
+          <ul class="list">
+            <li>✔ Integración por API REST.</li>
+            <li>✔ Escalable y personalizable.</li>
+            <li>⚠ Requiere hosting y configuración avanzada.</li>
+          </ul>
+          <a class="cta" href="#demo-admin">Ver “Admin (simulado)”</a>
+        </article>
+
+        <!-- Opción cerrada -->
+        <article class="card" role="listitem">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <h3 style="margin:0;">Opción B — BigCommerce</h3>
+            <span class="badge">Cerrada</span>
+          </div>
+          <p class="muted">Plataforma SaaS con hosting incluido, apps de extensión y administración centralizada.</p>
+          <ul class="list">
+            <li>✔ Checkout seguro y fácil de implementar.</li>
+            <li>✔ Hosting y mantenimiento incluidos.</li>
+            <li>⚠ Suscripción mensual y dependencia de proveedor.</li>
+          </ul>
+          <a class="cta" href="#demo-admin">Ver “Admin (simulado)”</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="flujos">
+      <h2 id="flujos">Flujos ya simulados en el Front</h2>
+      <p class="muted">En nuestro e-commerce de coches se han simulado los siguientes flujos con datos ficticios:</p>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Cara al cliente</h3>
+          <div class="checklist">
+            <label class="row"><input type="checkbox" checked disabled> Catálogo de autos (JSON)</label>
+            <label class="row"><input type="checkbox" checked disabled> Detalle de coche</label>
+            <label class="row"><input type="checkbox" checked disabled> Carrito (localStorage)</label>
+            <label class="row"><input type="checkbox" checked disabled> Checkout simulado</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Back-office (simulado)</h3>
+          <div class="checklist">
+            <label class="row"><input type="checkbox" checked disabled> Panel de control centralizado</label>
+            <label class="row"><input type="checkbox" checked disabled> Gestión de inventario y stock</label>
+            <label class="row"><input type="checkbox" checked disabled> Órdenes y facturación</label>
+            <label class="row"><input type="checkbox" checked disabled> Reportes de ventas ficticios</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo-admin" class="section" aria-labelledby="admin">
+      <h2 id="admin">Panel de Control (Simulado) — Tecnologías Abierta y Cerrada</h2>
+      <p class="muted">Simulación de cómo se verían el inventario y las órdenes según la plataforma:</p>
+
+      <div class="grid cols-2">
+        <!-- Plataforma Abierta -->
+        <div class="card">
+          <h3>Magento Open Source (Abierta)</h3>
+
+          <details>
+            <summary>Inventario — autos disponibles</summary>
+            <div style="margin-top:12px;">
+              <div class="code">
+                AUTO-001 | Tesla Model 3 | Stock: 2 <span class="pill">Actualizar</span><br>
+                AUTO-002 | BMW Serie 3 | Stock: 0 <span class="pill danger">Reabastecer</span><br>
+                AUTO-003 | Ford Mustang | Stock: 4 <span class="pill">Actualizar</span>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Órdenes — historial</summary>
+            <div style="margin-top:12px;">
+              <div class="code">
+                ORD-1001 — $850,000 — Tesla Model 3 — <span class="ok">Pagada</span><br>
+                ORD-1002 — $1,200,000 — BMW Serie 5 — <span class="warn">Pendiente</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Plataforma Cerrada -->
+        <div class="card">
+          <h3>BigCommerce (Cerrada)</h3>
+
+          <details>
+            <summary>Inventario — autos disponibles</summary>
+            <div style="margin-top:12px;">
+              <div class="code">
+                AUTO-201 | Audi A4 | Stock: 3 <span class="pill">Actualizar</span><br>
+                AUTO-202 | Mercedes C200 | Stock: 0 <span class="pill danger">Reabastecer</span><br>
+                AUTO-203 | Nissan Altima | Stock: 7 <span class="pill">Actualizar</span>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Órdenes — historial</summary>
+            <div style="margin-top:12px;">
+              <div class="code">
+                ORD-2001 — $900,000 — Audi A4 — <span class="ok">Pagada</span><br>
+                ORD-2002 — $1,050,000 — Mercedes C200 — <span class="warn">Pendiente</span><br>
+                ORD-2003 — $780,000 — Nissan Altima — <span class="ok">Pagada</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explicación</h2>
+      <ul class="list">
+        <li>✔ 100% front-end (simulado).</li>
+        <li>✔ “Integración” solo ilustrativa: muestra cómo se vería con Magento o BigCommerce.</li>
+        <li>✔ Sin servidor ni base de datos real.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="Css.css">
+    <meta charset="UTF-8">
+    <title>Belcar - Menú</title>
+    <link rel="stylesheet" href="css/style_index.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <img src="Logos/logonav.png" alt="Belcar" style="height: 50px; width: auto;">
+  </a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas de Autos</a>
+      <div class="dropdown-content">
+        <a href="chevrolet.html">Chevrolet</a>
+        <a href="Adidas.html">Porsche</a>
+        <a href="Puma.html">Ford</a>
+        <a href="Crocs.html">BMW</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Novedades</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Modelos recientes</a>
+        <a href="paginaC.html">Ediciones exclusivas</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Refacciones</a>
+        <a href="paginaC.html">Servicios</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Promociones</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Bonos de descuento</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="Contactanos.html">Contáctanos 📞</a>
+    </div>
+  </div>
+
+  <!-- 🚀 DOCUMENTACIÓN SEPARADA A LA DERECHA -->
+  <div class="dropdown" style="margin-right: 30px;">
+    <a href="#">📄</a>
+    <div class="dropdown-content">
+      <a href="tecnologia.html">Tipo de tecnología</a>
+      <a href="disponibilidad.html">Disponibilidad</a>
+      <a href="infraestructura.html">Infraestructura</a>
+    </div>
+  </div>
+
+  <div class="perfil">
+    <a href="#" class="tablink" onclick="mostrarSeccion('carrito', event)">🛒</a>
+    <i onclick="window.location.href='Usuario.html'" title="Perfil">👤</i>
+  </div>
+</nav>
+
+  <div class="perfil" style="position: relative;">
+    <div id="menuPerfil" style="cursor: pointer; display: none;" onclick="toggleMenu()">👤</div>
+    <a id="btnLogin" href="login.html" style="color: rgb(255, 140, 0); display: none; text-decoration: none;">🔐 Iniciar sesión</a>
+    <div id="submenuPerfil" style="display: none; position: absolute; right: 0; top: 30px; background-color: #222; border: 1px solid #444; border-radius: 5px; padding: 8px 0; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 1000;">
+      <a href="Usuario.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">👤 Perfil</a>
+      <a href="#" onclick="cerrarSesion()" style="display: block; padding: 10px 20px; color: red; text-decoration: none;">🔓 Cerrar sesión</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="centrado">
+    <h2>Próximo Lanzamiento</h2>
+  </div>
+  <div class="carrusel">
+    <img id="imagenCarrusel" src="Logos/Captura de pantalla 2025-10-02 121735.png" alt="Carrusel Autos">
+  </div>
+  <div class="centrado">
+    <h2>Nuevo modelo edición limitada</h2>
+    <button class="comprar" onclick="window.location.href='Lego_Dunk.html'">Ver Ahora</button>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align: center;">productos nuevos</h2>
+  <div class="productos">
+    <div class="producto">
+      <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+      <a href="Nike/Kobe/Kobe%20X-Ray.html">
+        <img src="Logos/mclaren.png" alt="McLaren 765lt">
+      </a>
+      <h3>Electrizante Mclaren 765lt</h3>
+    </div>
+    <div class="producto">
+      <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+      <a href="Nike/Kobe/Kobe%205%20Bruce%20Lee.html">
+        <img src="Logos/ferrari.png" alt="Nike Kobe 5 Bruce Lee">
+      </a>
+      <h3>Ferrari f40</h3>
+    </div>
+    <div class="producto">
+      <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+      <a href="Nike/Kobe/Kobe%20Grinch.html">
+        <img src="Logos/2020-Ford-Mustang-Shelby-colors_o.png" alt="Nike Kobe 6 Protro Grinch">
+      </a>
+      <h3>Nike Kobe 6 Protro Grinch</h3>
+    </div>
+</div>
+
+<header>
+  <h1>Estado del Sistema - Belcar</h1>
+</header>
+
+<main>
+  <div class="status-card">
+    <h2>🔵 Uptime</h2>
+    <p>99.9%</p>
+  </div>
+
+  <div class="status-card">
+    <h2>⚡ Latencia</h2>
+    <p>120 ms</p>
+  </div>
+</main>
+
+
+ </section> 
+ <section class="descripcion-beneficios">
+   <div class="centrado"> 
+    <h2>¿Qué es Belcar?</h2>
+     <p>
+       Encuentra los autos más exclusivos del mercado mexicano e internacional.<br>
+        Compra y vive una experiencia unica al adquirir tu auto con nosotros.<br> 
+        Garantizamos autenticidad en cada producto.
+       </p> 
+  </div>
+  <div class="beneficios"> 
+    <h2>¿Por qué elegirnos?</h2>
+     <ul>
+     <li>✔️ Productos 100% originales</li> 
+     <li>✔️ Precios justos y competitivos</li>
+      <li>✔️ Entregas seguras en todo México</li> 
+    </ul> 
+  </div>
+   <div class="publico-meta"> 
+    <h2>Para los verdaderos amantes de los coches</h2> 
+    <p> 
+      Nuestra tienda está pensada para que encuentres el coche de tus sueños. 
+    </p> 
+  </div>
+</section>
+<footer style="text-align: center; padding: 20px; background-color: #111; color: #aaa;"> 
+  <a href="aviso_privacidad.html" style="color: #aaa; text-decoration: none;">Aviso de Privacidad</a> | 
+  <a href="politicas.html" style="color: #aaa; text-decoration: none;">Políticas</a> 
+</footer>
+
+<script>
+
+</script>
+
+</body> 
+</html>
+

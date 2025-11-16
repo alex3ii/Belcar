@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="../Css.css">
+    
+
+    <meta charset="UTF-8">
+    <title>Ford Mustang Shelby GT500</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: yellow;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: yellow;
+        }
+
+        .perfil {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .perfil i {
+            cursor: pointer;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .perfil i:hover {
+            color: yellow;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .imagen-producto {
+            max-width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .imagen-principal {
+            width: 280px;
+            border-radius: 10px;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .miniaturas img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .miniaturas img:hover {
+            border: 2px solid yellow;
+        }
+
+        .info-producto {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        .info-producto h1 {
+            margin-top: 0;
+        }
+
+        .precio {
+            font-size: 24px;
+            margin: 15px 0;
+            color: yellow;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .botones button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .comprar {
+            background-color: yellow;
+            color: black;
+            border: none;
+        }
+
+        .pujar {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .comprar:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        .pujar:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .relacionados {
+            margin: 40px 20px;
+        }
+
+        .relacionados h2 {
+            margin-bottom: 15px;
+        }
+
+        .productos-rel {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+        }
+
+        .producto-rel {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 150px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .producto-rel img {
+            width: 120px;
+            border-radius: 10px;
+        }
+
+        .producto-rel p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .producto-rel a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.producto-rel a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.producto-rel a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<nav>
+<a href="../../index.html" class="logo">
+  <img src="../../Logos/logonav.png" alt="Arkham City" style="height: 50px; width: auto;">
+</a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas automoviles </a>
+      <div class="dropdown-content">
+        <a href="../../Nike.html">Chevrolete</a>
+        <a href="../../Adidas.html">Porsche</a>
+        <a href="../../Puma.html">Ford</a>
+        <a href="../../Crocs.html">BMW</a>
+
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Nuevo</a>
+      <div class="dropdown-content">
+        <a href="../../paginaC.html">Llegadas recientes</a>
+        <a href="../../paginaC.html">Exclusivos</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="../../paginaC.html">Refacciones</a>
+        <a href="../../paginaC.html">Servicios</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Promociones</a>
+      <div class="dropdown-content">
+        <a href="../../paginaC.html">Bonos de descuento</a>
+        <a href="../../paginaC.html">Liquidación</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Ofertas</a>
+      <div class="dropdown-content">
+        <a href="../../paginaC.html">Descuentos 50%</a>
+        <a href="../../paginaC.html">Liquidación</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="perfil">
+    <i onclick="window.location.href='../../Usuario.html'" title="Perfil">👤</i>
+  </div>
+</nav>
+
+<!-- Contenido Principal -->
+<div class="main">
+
+    <!-- Imagen del producto con carrusel -->
+    <div class="imagen-producto">
+        <img id="imagenPrincipal" class="imagen-principal" src="KobeX-Ray/mustang1.png" alt="Nike Kobe 5 Protro X-Ray">
+
+        <div class="miniaturas">
+
+            <img src="KobeX-Ray/mustang1.png" onmouseover="cambiarImagen('KobeX-Ray/mustang1.png')" alt="Vista 2">
+            <img src="KobeX-Ray/mustang2.png" onmouseover="cambiarImagen('KobeX-Ray/mustang2.png')" alt="Vista 2">
+            <img src="KobeX-Ray/mustang3.png" onmouseover="cambiarImagen('KobeX-Ray/mustang3.png')" alt="Vista 2">
+        
+            
+
+        </div>
+    </div>
+
+    <!-- Información del producto -->
+   <div class="info-producto">
+  <h1>Ford Mustang Shelby GT500</h1>
+  <p>Entrega inmediata en concesionaria oficial. Garantía de 3 años incluida.</p>
+
+  <label for="version">Versión:</label>
+  <select id="version">
+    <option>Selecciona una versión</option>
+    <option>GT500 Básico</option>
+    <option>GT500 Premium</option>
+    <option>GT500 Edición Especial</option>
+  </select>
+
+  <div class="precio">$5,300,000 MXN</div>
+
+  <div class="botones">
+    <button class="pujar" onclick="hacerPuja()">Hacer puja</button>
+    <button class="comprar" onclick="agregarAlCarrito()">Agregar al carrito</button>
+  </div>
+
+  <p style="margin-top: 10px;">Garantía: 3 años o 60,000 km</p>
+</div>
+
+        <p style="margin-top: 10px;">Última venta: $70,300</p>
+    </div>
+</div>
+
+<!-- Productos relacionados -->
+<div class="relacionados">
+    <h2>Productos relacionados</h2>
+    <div class="productos-rel">
+        <div class="producto-rel">
+            <a href="Kobe%205%20Bruce%20Lee.html">
+                <img src="../../Logos/ferrari.png" alt="Nike Kobe 5 Protro Bruce Lee">
+                <p>Ferrari 488 Pista</p>
+            </a>
+        </div>
+        
+        <div class="producto-rel">
+            <a href="../Giannis/Giannis Rose.html">
+                <img src="../../Logos/mclaren.png" alt="Nike Kobe 6 Grinch">
+                <p>McLaren 720S</p>
+            </a>
+        </div>
+        <div class="producto-rel">
+            <a href="../Giannis/Giannis Immortality 4.html">
+                <img src="../../Logos/camaro.avif" alt="Lego Dunk">
+                <p>Chevrolet Camaro ZL1</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function cambiarImagen(imagen) {
+        document.getElementById('imagenPrincipal').src = imagen;
+    }
+
+    function hacerPuja() {
+        const monto = prompt("¿Cuánto deseas ofrecer por este modelo? (MXN)");
+        if (monto && !isNaN(monto)) {
+            const nombreProducto = "Ford Mustang Shelby GT500";
+            const puja = `${nombreProducto} - $${parseFloat(monto).toFixed(2)} MXN`;
+            const pujas = JSON.parse(localStorage.getItem("pujas") || "[]");
+            pujas.push(puja);
+            localStorage.setItem("pujas", JSON.stringify(pujas));
+            alert("¡Tu puja ha sido registrada!");
+        }
+    }
+
+    function agregarAlCarrito() {
+        const version = document.getElementById("version").value;
+        if (version === "Selecciona una versión") {
+            alert("Por favor selecciona una versión del coche.");
+            return;
+        }
+
+        const producto = {
+            nombre: "Ford Mustang Shelby GT500 - " + version,
+            precio: 5300000 // Precio real del coche
+        };
+
+        const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+        carrito.push(producto);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("Producto agregado al carrito: " + producto.nombre);
+    }  
+</script>
+
+
+</body>
+</html>

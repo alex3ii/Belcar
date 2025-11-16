@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página en Construcción - Arkham</title>
+    <link rel="stylesheet" href="Css.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: yellow;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+
+        .perfil {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .perfil i {
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .perfil i:hover {
+            color: yellow;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 80vh;
+        }
+
+        .construccion {
+            border: 4px dashed #fbbf24;
+            padding: 50px;
+            max-width: 600px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 20px #fbbf24;
+            border-radius: 10px;
+        }
+
+        .construccion h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .construccion p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <img src="Logos/logonav.png" alt="Belcar">
+  </a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas de autos</a>
+      <div class="dropdown-content">
+        <a href="chevrolet.html">Chevrolet</a>
+        <a href="paginaC.html">Porsche</a>
+        <a href="paginaC.html">Ford</a>
+        <a href="Crocs.html">BMW</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Novedades</a>
+      <div class="dropdown-content">
+        <a href="Gorras.html">Modelos recientes</a>
+        <a href="paginaC.html">Ediciones exclusivas</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Refacciones</a>
+        <a href="paginaC.html">Servicios</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Promociones</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Bonos de descuento</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="Contactanos.html">Contáctanos 📞</a>
+    </div>
+  </div>
+
+  <div class="perfil">
+    <i onclick="window.location.href='Usuario.html'" title="Perfil">👤</i>
+  </div>
+</nav>
+
+<!-- Contenido central de construcción -->
+<div class="contenido">
+  <div class="construccion">
+    <h2>🚧 Página en Construcción</h2>
+    <p>Estamos trabajando para traerte una experiencia de otro nivel. ¡Vuelve pronto!</p>
+  </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Belcar - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

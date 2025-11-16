@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda</title>
+  <link rel="stylesheet" href="CssNike.css">
+  <style>
+    h2 {
+      color: white;
+      text-align: center;
+      font-size: 26px;
+      margin: 30px 0 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="Logos/Logo.png" alt="Arkham City" style="height: 50px; width: auto;">
+  </a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas</a>
+      <div class="dropdown-content">
+        <a href="Nike.html">Nike</a>
+        <a href="Adidas.html">Adidas</a>
+        <a href="Puma.html">Puma</a>
+        <a href="Crocs.html">Crocs</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Nuevo</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Llegadas recientes</a>
+        <a href="paginaC.html">Exclusivos</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Modelos</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Sudaderas</a>
+        <a href="paginaC.html">Playeras</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Ofertas</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Descuentos 50%</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="Contactanos.html">Contáctanos 📞</a>
+    </div>
+  </div>
+
+  <div class="perfil" style="position: relative;">
+    <div id="menuPerfil" style="cursor: pointer; display: none;" onclick="toggleMenu()">
+      👤
+    </div>
+<a id="btnLogin" href="login.html" style="color: yellow; display: none; text-decoration: none;">🔐 Iniciar sesión</a>
+    <div id="submenuPerfil" style="display: none; position: absolute; right: 0; top: 30px; background-color: #222; border: 1px solid #444; border-radius: 5px; padding: 8px 0; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 1000;">
+      <a href="Usuario.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">👤 Perfil</a>
+      <a href="#" onclick="cerrarSesion()" style="display: block; padding: 10px 20px; color: red; text-decoration: none;">🔓 Cerrar sesión</a>
+    </div>
+  </div>
+</nav>
+
+    
+  
+  <div class="imagen-central">
+    <img src="Logos/Crocs_Logo.png" alt="Portada Crocs" style="height: 200px; width: auto">
+  </div>
+
+
+  <section>  
+      
+    <div class="productos">
+      <div class="producto">
+        <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+        <a href="Crocs/Crocs%20Batman%20Batmobile.html">
+          <img src="Crocs/CrocsBatmanBatmobile/CrocsBatmanBatmobile.PNG" alt="Crocs Batman Batmobile">
+        </a>
+        <h3>Crocs Batman Batmobile</h3>
+      </div>
+        
+      <div class="producto">
+        <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+        <a href="Crocs/Crocs%20Lightning%20McQueen.html">
+          <img src="Crocs/CrocsLightningMcQueen/CrocsLightningMcQueen.PNG" alt="Crocs Lightning McQueen">
+        </a>
+        <h3>Crocs Lightning McQueen</h3>
+      </div>
+        
+    <div class="producto">
+        <div class="favorito" onclick="toggleFavorito(this)">❤</div>
+        <a href="Crocs/Crocs%20Pok%C3%A9mon%20Charizard%20vs.%20Blastoise.html">
+          <img src="Crocs/CrocsPokemonCharizardvs.Blastoise/CrocsPokemonCharizardvs.Blastoise.PNG" alt="Crocs Pokémon Charizard vs. Blastoise">
+        </a>
+        
+        <h3>Crocs Pokémon Charizard vs. Blastoise</h3>
+      </div>
+    </div>
+  </section>
+    
+  <script>
+    function toggleFavorito(element) {
+        element.classList.toggle('activo');
+        const producto = element.nextElementSibling.querySelector('img').alt;
+        let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        if (element.classList.contains('activo')) {
+            favoritos.push(producto);
+        } else {
+            favoritos = favoritos.filter(p => p !== producto);
+        }
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    }
+      function toggleMenu() {
+    const submenu = document.getElementById("submenuPerfil");
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("menuPerfil");
+    const submenu = document.getElementById("submenuPerfil");
+    if (!menu.contains(event.target) && !submenu.contains(event.target)) {
+      submenu.style.display = "none";
+    }
+  });
+
+  function cerrarSesion() {
+    localStorage.removeItem("usuarioLogueado");
+    alert("Sesión cerrada");
+    location.reload();
+  }
+
+  window.onload = function () {
+    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+    const menuPerfil = document.getElementById("menuPerfil");
+    const submenuPerfil = document.getElementById("submenuPerfil");
+    const btnLogin = document.getElementById("btnLogin");
+
+    if (!usuarioLogueado) {
+      if (menuPerfil) menuPerfil.style.display = "none";
+      if (submenuPerfil) submenuPerfil.style.display = "none";
+      if (btnLogin) btnLogin.style.display = "inline-block";
+    } else {
+      if (menuPerfil) menuPerfil.style.display = "block";
+      if (btnLogin) btnLogin.style.display = "none";
+    }
+  };
+  </script>
+
+</body>
+</html>

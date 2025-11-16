@@ -1,0 +1,15 @@
+.no-estilo {
+    color: yellow;
+    text-decoration: none;
+}
+
+.no-estilo:visited {
+    color: yellow;
+}
+
+.no-estilo:hover,
+.no-estilo:active,
+.no-estilo:focus {
+    text-decoration: none;
+    color: yellow;
+}

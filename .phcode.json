@@ -1,0 +1,7 @@
+{
+    "livePreviewUseDevServer": false,
+    "livePreviewServerURL": "http://localhost/Belcar",
+    "livePreviewServerProjectPath": "index.html",
+    "livePreviewHotReloadSupported": true,
+    "livePreviewFramework": "Custom"
+}

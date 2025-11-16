@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <link rel="stylesheet" href="Css.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit LEGO® Nike Dunk</title>
+  <style>
+    body {
+      font-family: Bahnschrift, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    nav {
+      background-color: black;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .perfil i {
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 30px auto;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .miniaturas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .miniaturas img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .miniaturas img:hover {
+      border-color: yellow;
+    }
+
+    .imagen-principal {
+      flex-shrink: 0;
+      width: 500px;
+    }
+
+    .imagen-principal img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .info-producto {
+      flex: 1;
+      background-color: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(3px);
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+    }
+
+    .precio {
+      color: #00ff00;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .imagen-principal,
+      .info-producto {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+<nav>
+<a href="index.html" class="logo">
+  <img src="Logos/Logo_Chico.png" alt="Arkham City" style="height: 50px; width: auto;">
+</a>
+
+  <div class="menu">
+    <div class="dropdown">
+      <a href="#">Marcas </a>
+      <div class="dropdown-content">
+        <a href="Nike.html">Nike</a>
+        <a href="Adidas.html">Adidas</a>
+        <a href="Puma.html">Puma</a>
+        <a href="Crocs.html">Crocs</a>
+
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Nuevo</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Llegadas recientes</a>
+        <a href="paginaC.html">Exclusivos</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Modelos</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Sudaderas</a>
+        <a href="paginaC.html">Playeras</a>
+        <a href="paginaC.html">Pantalones</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Accesorios</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Gorras</a>
+        <a href="paginaC.html">Mochilas</a>
+        <a href="paginaC.html">Calcetas</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Ofertas</a>
+      <div class="dropdown-content">
+        <a href="paginaC.html">Descuentos 50%</a>
+        <a href="paginaC.html">Liquidación</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="perfil">
+    <i onclick="window.location.href='Usuario.html'" title="Perfil">👤</i>
+  </div>
+</nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="contenedor">
+    <!-- Miniaturas -->
+    <div class="miniaturas">
+      <img src="Logos/Lego/Lego1.PNG" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/Lego2.PNG" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/Lego3.PNG" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/Lego4.PNG" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/Lego5.PNG" onmouseover="cambiarImagen(this)">
+      <img src="Logos/Lego/Lego6.PNG" onmouseover="cambiarImagen(this)">
+    </div>
+
+    <!-- Imagen principal -->
+    <div class="imagen-principal">
+      <img id="imagen-grande" src="Logos/Lego/Lego1.PNG" alt="Imagen principal LEGO">
+    </div>
+
+    <!-- Información del producto -->
+    <div class="info-producto">
+      <h2>Kit LEGO® de tenis con minifigura exclusiva</h2>
+      <p class="precio">$2,599.00</p>
+      <p>
+        Reimagina los Nike Dunk de canastas a ladrillos con este set de la colección Nike x LEGO®.
+        Fabrica los tenis de básquetbol icónicos, lanzados por primera vez hace más de 40 años, ladrillo
+        a ladrillo antes de exhibirlos fuera de la cancha. Porque las leyendas no nacen, se hacen.
+      </p>
+      <p>
+        El set incluye compartimentos ocultos para que los descubras conforme los vas fabricando y
+        agujetas adicionales para personalizar el color. La exclusiva minifigura de cabeza de balón de
+        básquetbol luce unos Nike Drip y Nike Dunk que hacen juego con tu nueva creación.
+        Diseñada para ser un objeto de colección, tu creación lleva la diversión de la cancha
+        a la decoración de tu espacio.
+      </p>
+      <p><strong>SKU:</strong> LE1000-471</p>
+      <ul>
+        <li>Edad: 10 años en adelante</li>
+        <li>No apto para menores de 3 años</li>
+        <li>25 x 38 x 13 cm</li>
+        <li>1,180 piezas</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function cambiarImagen(elemento) {
+      const imagenGrande = document.getElementById("imagen-grande");
+      imagenGrande.src = elemento.src;
+    }
+  </script>
+</body>
+</html>

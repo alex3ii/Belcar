@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Belcar - Estado del Sistema</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      padding: 15px 30px;
+      text-align: center;
+      border-bottom: 2px solid #00ffcc;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #00ffcc;
+      font-size: 2em;
+    }
+
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .status-card {
+      display: inline-block;
+      background-color: #222;
+      border: 1px solid #00ffcc;
+      border-radius: 12px;
+      padding: 25px 40px;
+      margin: 20px;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .status-card:hover {
+      transform: scale(1.05);
+    }
+
+    .status-card h2 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+
+    .status-card p {
+      font-size: 1.3em;
+      margin: 0;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      color: #aaa;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Estado del Sistema - Belcar</h1>
+</header>
+
+<main>
+  <div class="status-card">
+    <h2>🔵 Uptime</h2>
+    <p>99.9%</p>
+  </div>
+
+  <div class="status-card">
+    <h2>⚡ Latencia</h2>
+    <p>120 ms</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Belcar | Información ficticia para monitoreo de estado</p>
+</footer>
+
+</body>
+</html>
