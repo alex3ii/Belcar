@@ -132,6 +132,42 @@
     .eliminar:hover {
       background-color: darkred;
     }
+
+    /* --- Estilos para el control de Stock del Administrador --- */
+
+.stock-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones y el número */
+}
+
+.stock-control button {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Hace los botones redondos */
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 28px; /* Centra el + y - verticalmente */
+}
+
+.stock-control button:hover {
+    background-color: #777;
+}
+
+.stock-control span {
+    font-weight: bold;
+    font-size: 1.1em;
+    min-width: 30px; /* Asegura que el espacio no cambie */
+    text-align: center;
+    background-color: #2c2c2c;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
   </style>
 </head>
 <body>
@@ -173,7 +209,7 @@
         <a href="paginaC.html">Liquidación</a>
       </div>
     </div>
-    <div class="dropdown">
+    <div class="dropdown usuario-solo">
       <a href="Contactanos.html">Contáctanos 📞</a>
     </div>
   </div>
@@ -195,18 +231,23 @@
   <!-- Barra lateral -->
   <div class="sidebar">
     <a href="#" class="tablink active" onclick="mostrarSeccion('perfil', event)">👤 Perfil</a>
-    <a href="#" class="tablink" onclick="mostrarSeccion('favoritos', event)">❤️ Favoritos</a>
-    <a href="#" class="tablink" onclick="mostrarSeccion('carrito', event)">🛒 Carrito</a>
-    <a href="#" class="tablink" onclick="mostrarSeccion('historial', event)">📦 Historial</a>
-    <a href="#" class="tablink" onclick="mostrarSeccion('pujas', event)">💸 Pujas</a>
-    <a href="#" class="tablink" onclick="mostrarSeccion('contacto', event)">📞 Contáctanos</a>
+    <a href="#" class="tablink usuario-solo" onclick="mostrarSeccion('favoritos', event)">❤️ Favoritos</a>
+    <a href="#" class="tablink usuario-solo" onclick="mostrarSeccion('carrito', event)">🛒 Carrito</a>
+    <a href="#" class="tablink usuario-solo" onclick="mostrarSeccion('historial', event)">📦 Historial</a>
+    <a href="#" class="tablink usuario-solo" onclick="mostrarSeccion('pujas', event)">💸 Pujas</a>
+    <a href="#" class="tablink usuario-solo" onclick="mostrarSeccion('contacto', event)">📞 Contáctanos</a>
 
-    <a href="#" id="adminTab" class="tablink hidden" onclick="mostrarSeccion('adminPanel', event)"> ⚙️ Administrar Inventario </a>
+    <a href="#" id="adminTab" class="tablink hidden" 
+    onclick="mostrarSeccion('adminPanel', event)"> ⚙️ Opciones de Administrador</a>
 
     <div id="adminPanel" class="section hidden">
-        <h3>⚙️ Administrar Inventario de Autos</h3>
-        <p>Modifica los precios, cantidades y detalles de los productos.</p>
+        <h3>⚙️ Revisión de Inventario</h3>
+        <p></p>
           
+        <div>
+          <a href="metricas.html"> Métricas </a>
+        </div>
+
         <table id="tablaProductos">
         </table>
     </div>
@@ -220,39 +261,30 @@
     <p><strong>Correo:</strong> <span id="perfilCorreo"></span></p>
     <p><strong>Usuario:</strong> <span id="perfilUsuario"></span></p>
 
-      <div id="adminPanel" class="section hidden">
-          <h3>⚙️ Panel de Administración</h3>
-          <p>Lista de todos los usuarios registrados en el sistema.</p>
-          <ul id="listaDeUsuarios">
-              </ul>
-      </div>
-
     <button onclick="cerrarSesion()" style="margin-top: 15px; background-color: red; color: white;">Cerrar Sesión</button>
   </div>
 
-
-
-    <div id="favoritos" class="section">
+    <div id="favoritos" class="section usuario-solo">
       <h3>❤️ Favoritos</h3>
       <ul id="listaFavoritos"></ul>
     </div>
 
-    <div id="carrito" class="section">
+    <div id="carrito" class="section usuario-solo">
       <h3>🛒 Carrito</h3>
       <ul id="listaCarrito"></ul>
     </div>
 
-    <div id="historial" class="section">
+    <div id="historial" class="section usuario-solo">
       <h3>📦 Historial de Compras</h3>
       <ul id="listaHistorial"></ul>
     </div>
 
-    <div id="pujas" class="section">
+    <div id="pujas" class="section usuario-solo">
       <h3>💸 Tus Pujas</h3>
       <ul id="listaPujas"></ul>
     </div>
 
-<div id="contacto" class="section">
+<div id="contacto" class="section usuario-solo">
   <h3>📞 Contáctanos</h3>
   
   <p>¿Tienes dudas? Escríbenos a 
@@ -276,6 +308,20 @@
     margin-top: 10px;
   ">
     <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+  </a>
+
+  <a href="https://www.bing.com/ck/a?!&&p=c482576079c170653a51ed27c8457cf8ce67bb361df7358f2ce1111f5056c7b4JmltdHM9MTc2MjEyODAwMA&ptn=3&ver=2&hsh=4&fclid=0fef64f6-1cbb-6791-11a3-728a1dc06631&psq=facebook&u=a1aHR0cHM6Ly9lcy1sYS5mYWNlYm9vay5jb20v" 
+    target="_blank" style="
+    display: inline-block;
+    background-color: #1d5fdb;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+  ">
+    <i class="fab fa-whatsapp"></i> Escríbenos por Facebook Messenger
   </a>
 </div>
   </div>
@@ -347,57 +393,58 @@ function cargarListas() {
       if (item.precio) total += parseFloat(item.precio);
     });
 
-  if (carrito.length) {
-    const totalLi = document.createElement("li");
-    totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)} MXN</strong>`;
-    listaCart.appendChild(totalLi);
+    if (carrito.length) {
+      const totalLi = document.createElement("li");
+      totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)} MXN</strong>`;
+      listaCart.appendChild(totalLi);
 
-    // Contenedor PayPal
-    const paypalContainer = document.createElement("div");
-    paypalContainer.id = "paypal-button-container";
-    paypalContainer.style.marginTop = "20px";
-    listaCart.appendChild(paypalContainer);
+      // Contenedor PayPal
+      const paypalContainer = document.createElement("div");
+      paypalContainer.id = "paypal-button-container";
+      paypalContainer.style.marginTop = "20px";
+      listaCart.appendChild(paypalContainer);
 
-    // Logos de tarjetas
-    const logosContainer = document.createElement("div");
-    logosContainer.innerHTML = `
-      <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
-        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" style="height: 30px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" style="height: 24px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTwNB8upRoQJiLcSYPPRUKn3v-Oksekb78w&s" alt="MasterCard" style="height: 24px;">
-      </div>
-    `;
-    listaCart.appendChild(logosContainer);
+      // Logos de tarjetas
+      const logosContainer = document.createElement("div");
+      logosContainer.innerHTML = `
+        <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
+          <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" style="height: 30px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" style="height: 24px;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTwNB8upRoQJiLcSYPPRUKn3v-Oksekb78w&s" alt="MasterCard" style="height: 24px;">
+        </div>
+      `;
+      listaCart.appendChild(logosContainer);
 
-    // SDK de PayPal con tu Client ID
-    const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=Ab8T6SqCy15oxadSh3DqKnzjZtVa3jVx6hJ4mGXvOvB23ZbEpQFsoBrO3QH6A-EVKsbh0EyBDoDWhhi7&currency=MXN";
-    script.onload = () => {
-      paypal.Buttons({
-        createOrder: function (data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: total.toFixed(2)
-              }
-            }]
-          });
-        },
-        onApprove: function (data, actions) {
-          return actions.order.capture().then(function (details) {
-            alert('Gracias por tu compra, ' + details.payer.name.given_name + '!');
-            const historialPrevio = JSON.parse(localStorage.getItem("historial") || "[]");
-            const historialNuevo = historialPrevio.concat(carrito);
-            localStorage.setItem("historial", JSON.stringify(historialNuevo));
-            localStorage.setItem("carrito", "[]");
-            cargarListas();
-          });
-        }
-      }).render('#paypal-button-container');
-    };
-  document.body.appendChild(script);
-}
-  pujas.forEach((item, index) => {
+      // SDK de PayPal con tu Client ID
+      const script = document.createElement("script");
+      script.src = "https://www.paypal.com/sdk/js?client-id=Ab8T6SqCy15oxadSh3DqKnzjZtVa3jVx6hJ4mGXvOvB23ZbEpQFsoBrO3QH6A-EVKsbh0EyBDoDWhhi7&currency=MXN";
+      script.onload = () => {
+        paypal.Buttons({
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: total.toFixed(2)
+                }
+              }]
+            });
+          },
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+              alert('Gracias por tu compra, ' + details.payer.name.given_name + '!');
+              const historialPrevio = JSON.parse(localStorage.getItem("historial") || "[]");
+              const historialNuevo = historialPrevio.concat(carrito);
+              localStorage.setItem("historial", JSON.stringify(historialNuevo));
+              localStorage.setItem("carrito", "[]");
+              cargarListas();
+            });
+          }
+        }).render('#paypal-button-container');
+      };
+      document.body.appendChild(script);
+    }
+
+    pujas.forEach((item, index) => {
         listaPujas.appendChild(crearItemConBoton(item, "pujas", index));
       });
 
@@ -406,7 +453,7 @@ function cargarListas() {
         li.textContent = item.nombre ? `${item.nombre} - $${item.precio} MXN` : item;
         listaHist.appendChild(li);
       });
-    }
+}
 
     window.onload = cargarListas;
     // Mostrar info de usuario
@@ -420,58 +467,80 @@ function cargarListas() {
 
   // --- CÓDIGO PRINCIPAL QUE SE EJECUTA AL CARGAR LA PÁGINA ---
 
-window.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. OBTENER USUARIO Y VERIFICAR SESIÓN
-    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-    if (!usuarioLogueado) {
-        // Si no hay nadie logueado, no mostramos nada y lo mandamos al login.
-        window.location.href = "login.html";
-        return; // Detiene la ejecución del resto del script
-    }
+  window.addEventListener('DOMContentLoaded', () => {
+    // 1. OBTENER USUARIO Y VERIFICAR SESIÓN
+    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+    if (!usuarioLogueado) {
+        window.location.href = "login.html";
+        return; 
+    }
 
-    // 2. CONFIGURAR LA INTERFAZ GENERAL
-    document.getElementById("menuPerfil").style.display = "block";
-    document.getElementById("btnLogin").style.display = "none";
-    
-    // Rellenar la información del perfil
-    document.getElementById("perfilNombre").textContent = usuarioLogueado.nombre;
-    document.getElementById("perfilCorreo").textContent = usuarioLogueado.correo;
-    document.getElementById("perfilUsuario").textContent = usuarioLogueado.usuario;
+    // 2. CONFIGURAR LA INTERFAZ GENERAL
+    document.getElementById("menuPerfil").style.display = "block";
+    document.getElementById("btnLogin").style.display = "none";
+    document.getElementById("perfilNombre").textContent = usuarioLogueado.nombre;
+    document.getElementById("perfilCorreo").textContent = usuarioLogueado.correo;
+    document.getElementById("perfilUsuario").textContent = usuarioLogueado.usuario;
+    cargarListas();
 
-    // Cargar las listas de carrito, favoritos, etc.
-    cargarListas();
+    // 3. LÓGICA DE ADMINISTRADOR
+//     const params = new URLSearchParams(window.location.search);
+//     const vista = params.get('view');
 
-    // 3. LÓGICA DE ADMINISTRADOR
-    const params = new URLSearchParams(window.location.search);
-    const vista = params.get('view');
+    // Si la URL tiene "?view=admin" Y el rol del usuario es "administrador"
+    if (usuarioLogueado.rol === 'administrador'){
+        
+        // --- INICIO DE CAMBIOS ---
 
-    // Si la URL tiene "?view=admin" Y el rol del usuario es "administrador"
-    if (vista === 'admin' && usuarioLogueado.rol === 'administrador') {
-        // Mostramos el panel de admin
-        document.getElementById('adminTab').classList.remove('hidden');
-        document.getElementById('adminPanel').classList.remove('hidden');
-
-        // Llenamos la lista de usuarios
-        const listaUL = document.getElementById('listaDeUsuarios');
-        const todasLasCuentas = JSON.parse(localStorage.getItem('cuentas') || '[]');
-        listaUL.innerHTML = ''; 
-
-        todasLasCuentas.forEach(cuenta => {
-            const li = document.createElement('li');
-            li.textContent = `Nombre: ${cuenta.nombre} | Usuario: ${cuenta.usuario} | Rol: ${cuenta.rol}`;
-            listaUL.appendChild(li);
+        // 1. Ocultamos todos los elementos marcados como 'usuario-solo'
+        const elementosUsuario = document.querySelectorAll('.usuario-solo');
+        elementosUsuario.forEach(el => {
+            el.style.display = 'none';
         });
-    }
 
-    // Cerrar el submenú del perfil si se hace clic fuera
-    document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menuPerfil");
-        const submenu = document.getElementById("submenuPerfil");
-        if (!menu.contains(event.target) && !submenu.contains(event.target)) {
-            submenu.style.display = "none";
+        // 2. Mostramos el panel de admin
+        const adminTab = document.getElementById('adminTab');
+        const adminPanel = document.getElementById('adminPanel');
+        adminTab.classList.remove('hidden');
+        adminPanel.classList.remove('hidden');
+        
+        // 3. (Recomendado) Hacemos que el panel de admin sea la vista activa por defecto
+        
+        // Quitamos 'active' de la pestaña y sección 'perfil'
+        document.querySelector('.tablink[onclick="mostrarSeccion(\'perfil\', event)"]').classList.remove('active');
+        document.getElementById('perfil').classList.remove('active');
+        
+        // Añadimos 'active' a la pestaña y sección 'admin'
+        adminTab.classList.add('active');
+        adminPanel.classList.add('active');
+
+        // --- FIN DE CAMBIOS ---
+
+        // Llenamos la lista de usuarios (Tu código original la buscaba)
+        // Nota: El ID 'listaDeUsuarios' no estaba en el HTML que pasaste,
+        // pero si existe en tu proyecto, esto funcionará.
+        const listaUL = document.getElementById('listaDeUsuarios');
+        
+        if (listaUL) { // Añadí esta comprobación para evitar errores
+            const todasLasCuentas = JSON.parse(localStorage.getItem('cuentas') || '[]');
+            listaUL.innerHTML = ''; 
+            todasLasCuentas.forEach(cuenta => {
+                const li = document.createElement('li');
+                li.textContent = `Nombre: ${cuenta.nombre} | Usuario: ${cuenta.usuario} | Rol: ${cuenta.rol}`;
+                listaUL.appendChild(li);
+            });
         }
-    });
+
+    } // Fin del if (admin)
+
+    // Cerrar el submenú del perfil si se hace clic fuera
+    document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const submenu = document.getElementById("submenuPerfil");
+        if (!menu.contains(event.target) && !submenu.contains(event.target)) {
+            submenu.style.display = "none";
+        }
+    });
 });
 
 </script>
