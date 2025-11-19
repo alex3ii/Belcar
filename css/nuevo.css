@@ -1,0 +1,125 @@
+/* --- NAVEGACIÓN PREMIUM (Glassmorphism) --- */
+nav {
+    /* Posición pegajosa */
+    position: sticky; 
+    top: 0;
+    z-index: 1000; /* Asegura que esté siempre encima de todo */
+    
+    /* Efecto Cristal */
+    background-color: rgba(15, 15, 15, 0.85); /* Negro al 85% de opacidad */
+    backdrop-filter: blur(12px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(12px); /* Para Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea inferior sutil */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 70px; /* Altura fija para consistencia */
+    box-sizing: border-box;
+}
+
+/* Estilos para los enlaces del menú */
+.menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.menu a, .dropdown > a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: uppercase; /* Más elegante */
+    letter-spacing: 1px;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Efecto Hover en enlaces (Línea naranja animada) */
+.menu a:hover, .dropdown:hover > a {
+    color: #ff8c00;
+}
+
+.menu > div > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background-color: #ff8c00;
+    transition: width 0.3s;
+}
+
+.menu > div > a:hover::after {
+    width: 100%;
+}
+
+/* --- DROPDOWN MENU OSCURO --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1f1f1f; /* Fondo sólido oscuro */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 10px 0;
+    top: 100%; /* Justo debajo del link */
+    left: 0;
+    border: 1px solid #333;
+    z-index: 1001;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #ccc !important; /* Forzar color gris claro */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    text-transform: none; /* Normal case para submenús */
+    letter-spacing: 0.5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #333;
+    color: #ff8c00 !important;
+    padding-left: 25px; /* Pequeño desplazamiento a la derecha */
+}
+
+/* Animación suave para el dropdown */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ICONOS DE PERFIL Y CARRITO --- */
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil a, .perfil i {
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-style: normal; /* Para quitar cursiva si usas emojis o <i> */
+}
+
+.perfil a:hover, .perfil i:hover {
+    transform: scale(1.1);
+    color: #ff8c00;
+}

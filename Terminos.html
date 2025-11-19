@@ -2,34 +2,210 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Políticas - Belcar</title>
+  <title>Términos y Condiciones - Belcar</title>
   <style>
+    /* --- ESTILOS IDENTICOS AL AVISO DE PRIVACIDAD PARA CONSISTENCIA --- */
     body {
       background-color: #1a1a1a;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 30px;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
-    h1, h2 {
-      color: #00ffcc;
+
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
     }
-    a {
-      color: #00ffcc;
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
+
+    .btn-volver {
+      text-decoration: none;
+      color: #ffc107; /* Dorado Belcar */
+      border: 1px solid #ffc107;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    .legal-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #252525;
+      padding: 60px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-top: 4px solid #ffc107;
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      display: block;
+      text-align: center;
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #ffc107;
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+
     p {
       margin-bottom: 20px;
+      color: #ccc;
+      text-align: justify;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    ul li::before {
+      content: "▸";
+      color: #ffc107;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      top: -2px;
+    }
+
+    .disclaimer-box {
+      background-color: rgba(255, 193, 7, 0.1); /* Fondo dorado muy transparente */
+      border-left: 4px solid #ffc107;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+      font-style: italic;
+      color: #fff;
+    }
+
+    .legal-footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .legal-container { margin: 20px; padding: 30px; }
     }
   </style>
 </head>
 <body>
-  <h1>Términos y Condiciones de Belcar</h1>
 
-  <h2>Bienvenido a Belcar</h2>
-  <p>Este sitio es un proyecto educativo y una simulación. El uso del sitio implica 
-    la aceptación de estas reglas. Los precios y la disponibilidad de vehículos 
-    son ficticios y pueden cambiar. El 'apartado' no constituye una compra final, solo 
-    una reserva simulada. Belcar no se hace responsable por transacciones no reales. 
-    Los logos de 'Belcar' son propiedad intelectual nuestra.</p>
+  <header>
+    <a href="index.html" class="brand-name">Belcar Legal</a>
+    <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+  </header>
+
+  <div class="legal-container">
+    <h1>Términos y Condiciones</h1>
+    <span class="subtitle">Reglas de uso y aspectos legales</span>
+
+    <div class="disclaimer-box">
+      <strong>Nota Importante:</strong> Este sitio web es un proyecto académico de simulación. No se realizan ventas reales, ni transacciones monetarias. Los vehículos mostrados son con fines ilustrativos.
+    </div>
+
+    <h2>1. Aceptación de los Términos</h2>
+    <p>
+      Bienvenido a Belcar. Al acceder y navegar en este sitio web, aceptas cumplir y estar sujeto a los siguientes términos y condiciones de uso. 
+      Si no estás de acuerdo con alguna parte de estos términos, te recomendamos no utilizar nuestros servicios simulados.
+    </p>
+
+    <h2>2. Naturaleza del Proyecto Académico</h2>
+    <p>
+      El usuario reconoce que Belcar es una plataforma desarrollada con fines estrictamente educativos y de demostración técnica. Por lo tanto:
+    </p>
+    <ul>
+      <li>No existe inventario físico real de los vehículos mostrados.</li>
+      <li>Los precios mostrados son ficticios y no constituyen una oferta comercial vinculante.</li>
+      <li>No se procesarán pagos reales ni se solicitarán datos bancarios verídicos.</li>
+    </ul>
+
+    <h2>3. Propiedad Intelectual y Marcas</h2>
+    <p>
+      El diseño del sitio web, el código fuente, y los logotipos de "Belcar" son propiedad intelectual del desarrollador del proyecto. 
+    </p>
+    <p>
+      Respecto a las marcas de terceros mostradas (como Chevrolet, Porsche, Ford, BMW, etc.):
+    </p>
+    <ul>
+      <li>Son marcas registradas de sus respectivos propietarios.</li>
+      <li>Se utilizan en este sitio únicamente bajo el concepto de "Uso Justo" (Fair Use) con propósitos educativos y de demostración.</li>
+      <li>Belcar no tiene afiliación comercial oficial con dichas marcas.</li>
+    </ul>
+
+    <h2>4. Uso del Sitio y Cuentas de Usuario</h2>
+    <p>
+      Para acceder a ciertas funciones (como el carrito de compras simulado), el usuario puede crear una cuenta. El usuario se compromete a:
+    </p>
+    <ul>
+      <li>Proporcionar información veraz (aunque sea ficticia para la prueba).</li>
+      <li>No intentar vulnerar la seguridad del sitio web.</li>
+      <li>No utilizar el sitio para actividades ilícitas o spam.</li>
+    </ul>
+
+    <h2>5. Proceso de "Compra" y Apartado</h2>
+    <p>
+      Cualquier confirmación de "Apartado" o "Compra" generada por el sistema es meramente simbólica. 
+      Belcar no se hace responsable por la expectativa de entrega de ningún bien físico. La funcionalidad tiene el único objetivo de demostrar el flujo de usuario en una aplicación de comercio electrónico.
+    </p>
+
+    <h2>6. Limitación de Responsabilidad</h2>
+    <p>
+      Belcar no será responsable por daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de uso de este sitio web simulado, incluyendo daños por pérdida de datos o virus informáticos.
+    </p>
+
+    <h2>7. Modificaciones</h2>
+    <p>
+      Nos reservamos el derecho de modificar estos términos en cualquier momento sin previo aviso. Es responsabilidad del usuario revisar esta página periódicamente para estar al tanto de los cambios.
+    </p>
+
+    <div class="legal-footer">
+      © 2021-2025 Belcar.com - Proyecto Académico.<br>
+      Diseñado con fines educativos.
+    </div>
+  </div>
 
 </body>
 </html>

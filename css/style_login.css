@@ -20,7 +20,7 @@ body {
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: yellow;
+      color: #ff8c00;
     }
 
     input {
@@ -34,7 +34,7 @@ body {
     button {
       width: 100%;
       padding: 10px;
-      background-color: yellow;
+      background-color: #ff8c00;
       color: black;
       font-weight: bold;
       border: none;
@@ -43,7 +43,7 @@ body {
     }
 
     button:hover {
-      background-color: #f0c800;
+      background-color: #f0b000;
     }
 
     .toggle {
@@ -55,7 +55,7 @@ body {
     }
 
     .toggle:hover {
-      color: yellow;
+      color: #ff8c00;
     }
 
     .error {

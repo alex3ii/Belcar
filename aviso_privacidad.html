@@ -4,63 +4,223 @@
   <meta charset="UTF-8">
   <title>Aviso de Privacidad - Belcar</title>
   <style>
+    /* --- RESET Y BASE --- */
     body {
-      background-color: #1a1a1a;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 30px;
+      background-color: #1a1a1a; /* Fondo base oscuro */
+      color: #e0e0e0; /* Texto gris claro para lectura cómoda */
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
-    h1, h2 {
-      color: #00ffcc;
+
+    /* --- ENCABEZADO SIMPLE --- */
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
     }
-    a {
-      color: #00ffcc;
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
+
+    .btn-volver {
+      text-decoration: none;
+      color: #ffc107;
+      border: 1px solid #ffc107;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    /* --- CONTENEDOR DEL DOCUMENTO --- */
+    .legal-container {
+      max-width: 800px; /* Ancho limitado para que no canse la vista */
+      margin: 50px auto; /* Centrado */
+      background-color: #252525; /* "Hoja" gris oscura */
+      padding: 60px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-top: 4px solid #ffc107; /* Detalle de marca arriba */
+    }
+
+    /* --- TIPOGRAFÍA DEL DOCUMENTO --- */
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .last-updated {
+      display: block;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
+    h2 {
+      color: #ffc107; /* Títulos de sección en Amarillo Belcar */
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #444; /* Línea separadora sutil */
+      padding-bottom: 10px;
+    }
+
     p {
       margin-bottom: 20px;
+      color: #ccc; /* Gris suave */
+      text-align: justify; /* Justificado para look legal */
+    }
+
+    /* --- LISTAS --- */
+    ul {
+      list-style: none; /* Quitamos puntos por defecto */
+      padding-left: 20px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    /* Puntos personalizados (Flechas o cuadros) */
+    ul li::before {
+      content: "▹"; /* O puedes usar "•" */
+      color: #ffc107;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      top: -2px;
+    }
+
+    /* --- ENLACES DENTRO DEL TEXTO --- */
+    a.text-link {
+      color: #ffc107;
+      text-decoration: none;
+      border-bottom: 1px dotted #ffc107;
+    }
+
+    a.text-link:hover {
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* --- PIE DE DOCUMENTO --- */
+    .legal-footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .legal-container {
+        margin: 20px;
+        padding: 30px;
+      }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <h1>Aviso de Privacidad</h1>
 
-  <h2>1. Identidad del Responsable</h2>
-  <p>Belcar es responsable del tratamiento de tus datos personales. Puedes contactarnos a través del formulario de nuestro sitio web o mediante nuestras redes sociales oficiales.</p>
+  <header>
+    <a href="index.html" class="brand-name">Belcar Legal</a>
+    <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+  </header>
 
-  <h2>2. Datos que Recabamos</h2>
-  <p>Recopilamos información como nombre completo, correo electrónico, teléfono, dirección y datos relacionados con la compra de vehículos o servicios de Belcar.</p>
+  <div class="legal-container">
+    <h1>Aviso de Privacidad</h1>
+    <span class="last-updated">Última actualización: Noviembre 2025</span>
 
-  <h2>3. Finalidad del Uso de Datos</h2>
-  <p>Utilizamos tus datos para:</p>
-  <ul>
-    <li>Gestionar solicitudes de compra y entrega de vehículos</li>
-    <li>Brindar asesoría personalizada y seguimiento de cotizaciones</li>
-    <li>Atender consultas y brindar servicio postventa</li>
-    <li>Enviar promociones, novedades o invitaciones a eventos (si lo autorizas)</li>
-    <li>Generar estadísticas internas para mejorar nuestro servicio</li>
-  </ul>
+    <h2>1. Identidad del Responsable</h2>
+    <p>
+      <strong>Belcar S.A. de C.V.</strong> (en adelante "Belcar"), con domicilio en Aguascalientes, México, es responsable del tratamiento de tus datos personales. 
+      Nuestro compromiso es proteger tu privacidad y cumplir con la legislación aplicable. Puedes contactarnos a través de nuestro 
+      <a href="Contactanos.html" class="text-link">formulario web</a> o mediante nuestras redes sociales oficiales.
+    </p>
 
-  <h2>4. Protección y Confidencialidad</h2>
-  <p>La información personal que nos proporciones será tratada de manera estrictamente confidencial. No compartimos tus datos con terceros, salvo obligación legal o cuando sea necesario para procesos de pago, financiamiento o entrega del vehículo.</p>
+    <h2>2. Datos que Recabamos</h2>
+    <p>Para brindar nuestros servicios de venta y asesoría automotriz, podemos recopilar la siguiente información:</p>
+    <ul>
+      <li>Datos de identificación: Nombre completo, identificación oficial.</li>
+      <li>Datos de contacto: Correo electrónico, número telefónico, dirección.</li>
+      <li>Datos transaccionales: Información relacionada con la compra, financiamiento o servicios.</li>
+    </ul>
 
-  <h2>5. Derechos ARCO</h2>
-  <p>Como cliente tienes derecho a:</p>
-  <ul>
-    <li>Acceder a tus datos personales</li>
-    <li>Solicitar la rectificación de tus datos</li>
-    <li>Cancelar el uso de tus datos cuando lo consideres necesario</li>
-    <li>Oponerte al uso de tus datos con fines comerciales o promocionales</li>
-  </ul>
-  <p>Para ejercer estos derechos, comunícate con nosotros a través del formulario de contacto de nuestra página o por correo electrónico.</p>
+    <h2>3. Finalidad del Uso de Datos</h2>
+    <p>Utilizamos tus datos personales estrictamente para los siguientes fines necesarios:</p>
+    <ul>
+      <li>Gestionar solicitudes de compra, facturación y entrega de vehículos.</li>
+      <li>Brindar asesoría personalizada y seguimiento puntual de cotizaciones.</li>
+      <li>Atender consultas técnicas y brindar servicio postventa de excelencia.</li>
+      <li>Procesos de validación de seguridad y prevención de fraudes.</li>
+    </ul>
+    <p>De manera secundaria, y solo si no expresas oposición, para enviar novedades exclusivas.</p>
 
-  <h2>6. Uso de Cookies</h2>
-  <p>Nuestro sitio web puede emplear cookies para mejorar tu experiencia de navegación. Puedes desactivarlas en la configuración de tu navegador si lo prefieres.</p>
+    <h2>4. Protección y Confidencialidad</h2>
+    <p>
+      La información personal que nos proporciones será tratada de manera estrictamente confidencial bajo protocolos de seguridad informática (SSL/TLS). 
+      No compartimos tus datos con terceros, salvo obligación legal o cuando sea estrictamente necesario para procesos de pago, gestoría vehicular o financiamiento.
+    </p>
 
-  <h2>7. Cambios en el Aviso</h2>
-  <p>Belcar se reserva el derecho de modificar este aviso de privacidad en cualquier momento. Las actualizaciones estarán disponibles en esta misma página.</p>
+    <h2>5. Derechos ARCO</h2>
+    <p>Como titular de los datos, tienes derecho a Acceder, Rectificar, Cancelar y Oponerte al tratamiento de tu información (Derechos ARCO). Específicamente:</p>
+    <ul>
+      <li><strong>Acceso:</strong> Conocer qué datos tenemos de ti.</li>
+      <li><strong>Rectificación:</strong> Corregir datos inexactos o desactualizados.</li>
+      <li><strong>Cancelación:</strong> Solicitar la eliminación de tus datos de nuestros registros.</li>
+      <li><strong>Oposición:</strong> Negarte al uso de tus datos para fines específicos.</li>
+    </ul>
+    <p>Para ejercer estos derechos, envía una solicitud a <strong>privacidad@belcar.com</strong>.</p>
 
-  <h2>8. Aceptación</h2>
-  <p>Al utilizar nuestros servicios o sitio web, aceptas los términos descritos en este aviso de privacidad.</p>
-  
+    <h2>6. Uso de Cookies y Tecnologías</h2>
+    <p>
+      Nuestro sitio web emplea cookies para mejorar tu experiencia de navegación y personalizar el contenido mostrado. 
+      Puedes deshabilitar el uso de cookies directamente en la configuración de tu navegador, aunque algunas funciones del sitio podrían verse afectadas.
+    </p>
+
+    <h2>7. Cambios en el Aviso</h2>
+    <p>
+      Belcar se reserva el derecho de modificar este aviso de privacidad en cualquier momento derivado de nuevos requerimientos legales o nuestras propias necesidades. 
+      Las actualizaciones estarán siempre disponibles en esta dirección web.
+    </p>
+
+    <h2>8. Aceptación</h2>
+    <p>
+      Al utilizar nuestros servicios o navegar en nuestro sitio web, reconoces haber leído y entendido este Aviso de Privacidad, aceptando sus términos y el tratamiento de tus datos personales.
+    </p>
+
+    <div class="legal-footer">
+      © 2025 Belcar Autos. Todos los derechos reservados. <br>
+      Aguascalientes, México.
+    </div>
+  </div>
+
 </body>
 </html>

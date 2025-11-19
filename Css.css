@@ -85,3 +85,157 @@ nav {
 .perfil i:hover {
   color: yellow;
 }
+
+/* --- ESTILOS GENERALES DE SECCIONES --- */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; /* O el color de fondo que ya tengas */
+}
+
+/* --- BARRA DE ESTADO DEL SISTEMA (Estilo Telemetría) --- */
+.system-status-bar {
+    background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+    color: #fff;
+    padding: 15px 0;
+    border-top: 3px solid #ff8c00; /* Acento naranja Belcar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-indicator {
+    height: 10px;
+    width: 10px;
+    background-color: #00ff88; /* Verde neón */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff88;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* --- SECCIÓN DE MARCA "que es belcar": TEMA OSCURO --- */
+.brand-info-section {
+    background-color: #121212; /* Fondo muy oscuro (casi negro) para la sección */
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.info-card {
+    /* Fondo gris oscuro suave, no negro total */
+    background: #252525; 
+    padding: 30px;
+    border-radius: 12px; /* Bordes un poco más redondeados */
+    border: 1px solid #333; /* Borde sutil para definir la tarjeta */
+    border-left: 4px solid #ff8c00; /* Acento naranja Belcar */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra oscura para profundidad */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background: #2a2a2a; /* Se aclara ligeramente al pasar el mouse */
+    border-left-color: #fff; /* Detalle interactivo */
+}
+
+.info-card h2 {
+    margin-top: 0;
+    color: #f0f0f0; /* Texto casi blanco para títulos */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.info-card p, .info-card li {
+    color: #b0b0b0; /* Gris plata para lectura cómoda sin cansar la vista */
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- FOOTER PROFESIONAL --- */
+.site-footer {
+    background-color: #111;
+    color: #aaa;
+    padding: 50px 20px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #ff8c00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: #666;
+    font-size: 0.8rem;
+}
